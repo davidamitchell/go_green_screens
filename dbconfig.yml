@@ -1,0 +1,9 @@
+development:
+    dialect: postgres
+    datasource: dbname=greenscreen_dev user=765440 sslmode=disable
+    dir: db/migrations
+
+production:
+    dialect: postgres
+    datasource: dbname=greenscreen user=765440 sslmode=disable
+    dir: db/migrations
