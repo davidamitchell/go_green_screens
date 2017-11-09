@@ -2,6 +2,12 @@
 	"version": 0,
 	"dependencies": [
 		{
+			"importpath": "github.com/Shopify/sarama",
+			"repository": "https://github.com/Shopify/sarama",
+			"revision": "15174039fd207656a0f97f52bc78ec7793deeada",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/armon/go-radix",
 			"repository": "https://github.com/armon/go-radix",
 			"revision": "1fca145dffbcaa8fe914309b1ec0cfc67500fe61",
@@ -14,15 +20,47 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/davecgh/go-spew/spew",
+			"repository": "https://github.com/davecgh/go-spew",
+			"revision": "a476722483882dd40b8111f0eb64e1d7f43f56e4",
+			"branch": "master",
+			"path": "/spew"
+		},
+		{
 			"importpath": "github.com/denisenkom/go-mssqldb",
 			"repository": "https://github.com/denisenkom/go-mssqldb",
 			"revision": "84dc5e6cc4a674abe81be5bf7835f4ae3dced817",
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/eapache/go-resiliency/breaker",
+			"repository": "https://github.com/eapache/go-resiliency",
+			"revision": "b1fe83b5b03f624450823b751b662259ffc6af70",
+			"branch": "master",
+			"path": "/breaker"
+		},
+		{
+			"importpath": "github.com/eapache/go-xerial-snappy",
+			"repository": "https://github.com/eapache/go-xerial-snappy",
+			"revision": "bb955e01b9346ac19dc29eb16586c90ded99a98c",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/eapache/queue",
+			"repository": "https://github.com/eapache/queue",
+			"revision": "44cc805cf13205b55f69e14bcb69867d1ae92f98",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/go-sql-driver/mysql",
 			"repository": "https://github.com/go-sql-driver/mysql",
 			"revision": "3955978caca48c1658a4bb7a9c6a0f084e326af3",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/golang/snappy",
+			"repository": "https://github.com/golang/snappy",
+			"revision": "553a641470496b2327abcac10b36396bd98e45c9",
 			"branch": "master"
 		},
 		{
@@ -74,15 +112,52 @@
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/pierrec/lz4",
+			"repository": "https://github.com/pierrec/lz4",
+			"revision": "08c27939df1bd95e881e2c2367a749964ad1fceb",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pierrec/xxHash/xxHash32",
+			"repository": "https://github.com/pierrec/xxHash",
+			"revision": "a0006b13c722f7f12368c00a3d3c2ae8a999a0c6",
+			"branch": "master",
+			"path": "/xxHash32"
+		},
+		{
 			"importpath": "github.com/posener/complete",
 			"repository": "https://github.com/posener/complete",
 			"revision": "f4461a52b6329c11190f11fe3384ec8aa964e21c",
 			"branch": "master"
 		},
 		{
+			"importpath": "github.com/rcrowley/go-metrics",
+			"repository": "https://github.com/rcrowley/go-metrics",
+			"revision": "1f30fe9094a513ce4c700b9a54458bbb0c96996c",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/rubenv/sql-migrate",
 			"repository": "https://github.com/rubenv/sql-migrate",
 			"revision": "72a5478faa469f9023cc1802367cddfc5270acbb",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/satori/go.uuid",
+			"repository": "https://github.com/satori/go.uuid",
+			"revision": "5bf94b69c6b68ee1b541973bb8e1144db23a194b",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/tidwall/gjson",
+			"repository": "https://github.com/tidwall/gjson",
+			"revision": "be96719f990978a867f52c48f29d43f6b591da28",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/tidwall/match",
+			"repository": "https://github.com/tidwall/match",
+			"revision": "173748da739a410c5b0b813b956f89ff94730b4c",
 			"branch": "master"
 		},
 		{

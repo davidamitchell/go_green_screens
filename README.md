@@ -1,4 +1,18 @@
+# over all setup
+
+
+web application
+ - ledgers
+ - accounts
+
+green screens
+ - users
+ - accounts
+
+
 # go_green_screens
+
+this is a simulation of the backend processing applications
 
 
 ## Database migrations
@@ -12,6 +26,7 @@ go build gb https://getgb.io/docs/install/
 
 gb vendor fetch github.com/rubenv/sql-migrate
 gb vendor fetch gopkg.in/gorp.v1
+gb vendor fetch github.com/Shopify/sarama
 
 
 
@@ -42,3 +57,13 @@ To then run outstanding migrations:
 ```
  goose up
 ```
+
+
+
+
+
+
+## Notes
+export KAFKA_HOST=localhost
+export KAFKA_PORT=9092
+export DB_CONNECTION_STRING=dbname=greenscreen_dev user=765440 sslmode=disable

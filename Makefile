@@ -14,6 +14,6 @@ clean:
 	if [ -a pkg ]; then rm -rf pkg; fi;
 
 bindata:
-	go-bindata -o src/main/bindata.go db/migrations/
+	go-bindata -o src/main/bindata.go db/migrations/ static/...
 
-dbcreate:
+# dbcreate:

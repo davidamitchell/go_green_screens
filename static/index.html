@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Green screens</title>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <script src="/javascripts/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="appCtrl" ng-app="myapp" class="wrap" >
+    <h1>Green screens</h1>
+    <section class="accounts">
+      <h3>Accounts</h3>
+      <table>
+        <thead>
+          <tr>
+            <th ng-repeat="h in ['Account name','Owner','Created']">{{h}}</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="a in accounts">
+          <td>{{a.name}}</td>
+          <td>{{a.owner}}</td>
+          <td>{{a.created | date:'dd/MM/yyyy @ H:mm'}}</td>
+        </tr>
+      </table>
+      <input ng-model="accountname" placeholder="account name"/>
+      <select ng-model="owner">
+        <option ng-repeat="u in users" value="{{u.name}}">{{u.name}}</option>
+      </select>
+      <button ng-disabled="name=='' || owner ==''" ng-click="addAccount(accountname, owner)">add</button>
+    </section>
+    <section class="users">
+      <h3>Users</h3>
+      <table>
+        <thead>
+          <tr>
+            <th ng-repeat="h in ['Name','Created']">{{h}}</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="u in users">
+          <td>{{u.name}}</td>
+          <td>{{u.created}}</td>
+        </tr>
+      </table>
+      <input ng-model="username" placeholder="user name"/>
+      <button ng-disabled="name=='' || owner ==''" ng-click="addUser(username)">add</button>
+    </section>
+  </div>
+
+</body>
+
+<script>
+angular.module('myapp', [])
+.controller('appCtrl', function($scope, $http) {
+  console.log("loaded");
+  $scope.accounts = [];
+  $http.get('/accounts').then(
+    function(data){
+      console.log(data.data.accounts)
+      $scope.accounts = data.data.accounts;
+    },
+    function(err){
+      console.log(err)
+  });
+  $scope.users = [];
+  $http.get('/users').then(
+    function(data){
+      console.log(data.data.users)
+      $scope.users = data.data.users;
+    },
+    function(err){
+      console.log(err)
+  });
+
+  $scope.addUser = function addUser(username){
+    var data = {
+      name: username
+    }
+    $http.post('/users',data).then(
+      function(data){
+        console.log(data)
+        $scope.users.push(data.data.user)
+        $scope.username = '';
+      },
+      function(err){
+        console.log(err)
+    });
+  }
+
+  $scope.addAccount = function addAccount(accountname, owner){
+    var data = {
+      name: accountname,
+      owner: owner
+    }
+    $http.post('/accounts',data).then(
+      function(data){
+        console.log(data)
+        $scope.accounts.push(data.data.account)
+        $scope.accountname = '';
+        $scope.owner = '';
+
+      },
+      function(err){
+        console.log(err)
+    });
+  }
+
+
+});
+
+
+</script>
+</html>
