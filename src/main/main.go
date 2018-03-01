@@ -182,7 +182,6 @@ func accountsHandler(client *sql.DB) func(w http.ResponseWriter, r *http.Request
 func main() {
 
 	log.Println("connection string: ", os.Getenv("DB_CONNECTION_STRING"))
-	log.Println("pg host: ", os.Getenv("PGHOST"))
 	client, err := sql.Open("postgres", os.Getenv("DB_CONNECTION_STRING"))
 	log.Println("type of client: ", reflect.TypeOf(client))
 	if err != nil {

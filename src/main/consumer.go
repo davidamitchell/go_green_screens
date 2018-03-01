@@ -20,7 +20,7 @@ func mainConsumer(c *sql.DB) {
 
 	config := sarama.NewConfig()
 	config.Consumer.Return.Errors = true
-	h := "localhost"
+	h := "127.0.0.1"
 	if kh := os.Getenv("KAFKA_HOST"); kh != "" {
 		h = kh
 	}
@@ -42,11 +42,12 @@ func mainConsumer(c *sql.DB) {
 		}
 	}()
 
-	topic := "events"
+	topic := "account_events"
 	consumer, err := master.ConsumePartition(topic, 0, sarama.OffsetOldest)
 	if err != nil {
 		panic(err)
 	}
+	fmt.Printf("consumer connected to: %s --- %s", h+":"+p, topic)
 	defer func() {
 		if err := consumer.Close(); err != nil {
 			panic(err)
@@ -70,6 +71,7 @@ func mainConsumer(c *sql.DB) {
 			case msg := <-consumer.Messages():
 				msgCount++
 				msgVal = msg.Value
+				fmt.Printf("message count: %d", msgCount)
 
 				if err = json.Unmarshal(msgVal, &log); err != nil {
 					fmt.Printf("Failed parsing: %s", err)
@@ -121,7 +123,7 @@ func mainConsumer(c *sql.DB) {
 							}
 							fmt.Printf("\n...............................\nCreated new account from event %s:\n%s\n", logMap["eventtype"], string(msgVal))
 						} else {
-							// fmt.Printf("")
+							fmt.Printf("\n..... account already exists %s:\n%s\n", logMap["eventtype"], string(msgVal))
 						}
 					default:
 						fmt.Println("Unknown command: ", logType)
